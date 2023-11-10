@@ -1,9 +1,16 @@
 .vscode/**
 .vscode-test/**
+node_modules/**
 test/**
 .gitignore
 .yarnrc
+.npmrc
 vsc-extension-quickstart.md
 **/jsconfig.json
 **/*.map
 **/.eslintrc.json
+extension.js
+pnpm-lock.yaml
+package-lock.json
+webpack.config.js
+variable-naming-0.0.1.vsix
