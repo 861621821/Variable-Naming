@@ -37,6 +37,7 @@
     "scripts": {
         "serve": "webpack --mode none --watch",
         "vscode:prepublish": "webpack --mode production",
+        "package": "vsce package",
         "puhlish": "vsce publish",
         "lint": "eslint .",
         "pretest": "pnpm run lint",
