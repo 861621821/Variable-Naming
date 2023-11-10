@@ -20,12 +20,16 @@ module.exports = class Translater {
         const salt = Math.floor(Date.now() / 1000);
         // 签名
         const sign = md5(`${this.appid}${selectText}${salt}${this.scretkey}`);
-        const res = await fetch(`${url}?q=${encodeURIComponent(selectText)}&from=zh&to=en&appid=${this.appid}&salt=${salt}&sign=${sign}`);
-        const { trans_result } = await res.json();
-        if (trans_result && trans_result.length) {
-            text = trans_result[0].dst.toLowerCase();
+        try {
+            const res = await fetch(`${url}?q=${encodeURIComponent(selectText)}&from=zh&to=en&appid=${this.appid}&salt=${salt}&sign=${sign}`);
+            const { trans_result } = await res.json();
+            if (trans_result && trans_result.length) {
+                text = trans_result[0].dst.toLowerCase();
+            }
+            this.initOptions(text);
+        } catch (error) {
+            vscode.window.showInformationMessage('网络异常！');
         }
-        this.initOptions(text);
     }
 
     initOptions(text) {

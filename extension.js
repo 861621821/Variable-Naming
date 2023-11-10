@@ -21,7 +21,7 @@ function activate(context) {
                 translater.translate(selectedText);
             }
         } else {
-            vscode.window.showInformationMessage('Please select the text you want to translate first!');
+            vscode.window.showInformationMessage('请先选择要翻译的文本！');
         }
     });
 
